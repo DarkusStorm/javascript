@@ -9,14 +9,17 @@
     <p id="demo"></p>
     <script>
         // "Arranjo" de dados indexados.
-        const carros = ["Chevrolet", " Ford", " BYD"];
+        const carros = ["Chevrolet", "Ford", "BYD"];
+        
+        carros.push("Volkswagen");
+        carros.pop();
+        carros[carros.length] = "Mercedes-Benz";
 
-        document.getElementById("demo").innerHTML = numeros.sort((a, b) => b - a);
-        let minhaFunc = (valor) => {
-            texto += "<li>" + valor + "</li>";
-        }
         let texto = "<ul>";
-        carros.forEach(minhaFunc);
+        carros.sort().forEach((valor) => {texto += "<li>" + valor + "</li>"});
+        texto += "<ul>";
+
+        document.getElementById("demo").innerHTML = texto;
     </script>
 </body>
 </html>
