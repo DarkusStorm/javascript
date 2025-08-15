@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+</head>
+
+<body>
+    <p>
+        <input id="tarefa" type="text" placeholder="Insira aqui sua tarefa"></input>
+        <input id="data" type="date" placeholder="Insira a data da tarefa"></input>
+    </p>
+    <p>
+        <button id="enviar" onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    </p>
+    <div id="lista-de-tarefas"></div>
+    <script>
+        let afazeres = [
+            {
+                nome: "Lavar a louça",
+                data: "15/08/25",
+                id: "id1"
+            },
+            {
+                nome: "Lavar o banheiro",
+                data: "20/08/25",
+                id: "id2"
+            },
+            {
+                nome: "Estender as roupas",
+                data: "25/08/25",
+                id: "id3"
+            },
+            {
+                nome: "Assistir jogo do Corinthians",
+                data: "16/08/25",
+                id: "id4"
+            },
+        ];
+
+        const adicionarTarefa = () => {
+            const campoTarefa = document.getElementById("tarefa");
+            const tarefa = campoTarefa.value;
+
+            const campoData = document.getElementById("data");
+            const prazo = campoData.value;
+
+            const cron = "" + new Date().getTime();
+
+            afazeres.push(
+                {
+                    nome: tarefa,
+                    data: prazo,
+                    id: cron
+                }
+            )
+            renderizar();
+        }
+
+            let renderizar = () => {
+                afazeres.forEach((tarefa) => {
+                    const elemento = document.createElement("div");
+                    elemento.innerHTML = "<ul>" + "<li>" + tarefa.nome + " - " + tarefa.data + "</li>" + "</ul>";
+
+                    const listaDeTarefas = document.getElementById("lista-de-tarefas");
+                    listaDeTarefas.appendChild(elemento);
+                }
+                );
+            }
+
+        renderizar();
+        // Aprender como apagar tudo antes de renderizar novamente, e conversar com o professor sobre o fato de que 
+    </script>
+</body>
+
+</html>
