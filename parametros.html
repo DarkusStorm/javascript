@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parâmetros</title>
+</head>
+<body>
+    <p>Definindo um valor default para um parâmetro de uma função.</p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        let minhaFunc = (x, y) => {
+            return y == 0? "Resultado indefinido" : x / y;
+        }
+        document.getElementById("demo").innerHTML = minhaFunc(10, 2) + ".";
+
+        let minhaFunc1 = (x, y = 0) => x + y;
+        document.getElementById("demo1").innerHTML = minhaFunc1(10, 2) + ".";
+
+        let z;
+        document.getElementById("demo2").innerHTML = z;
+    </script>
+</body>
+</html>

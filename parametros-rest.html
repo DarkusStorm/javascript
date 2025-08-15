@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parâmetros Rest</title>
+</head>
+<body>
+    <h1>Parâmetros Rest</h1>
+    <p>Os parâmetros rest(...) permitem que um função trate um número indefinido de argumentos como um array:</p>
+    <p id="demo"></p>
+    <script>
+        let soma = (...args) => {
+            let soma = 0;
+            for (let arg of args){
+                soma += arg;
+            }
+            return soma;
+        }
+        document.getElementById("demo").innerHTML = soma(4, 3, 2, 1) + "."  ;
+    </script>
+</body>
+</html>

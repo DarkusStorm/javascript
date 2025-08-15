@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Flecha</title>
+</head>
+
+<body>
+    <h1>Funções Flecha (Arrow Functions)</h1>
+    <p>Este exemplo mostra o resultado da sintaxe de uma função tradicional:</p>
+    <p id="demo1"></p>
+    <p>Este exemplo mostra o resultado da sintaxe de uma função flecha:</p>
+    <p id="demo2"></p>
+
+    <script>
+        function minhaFuncTradicional(a, b) {
+            return a * b;
+        }
+        document.getElementById("demo1").innerHTML = minhaFuncTradicional(4, 3) + ".";
+
+        let minhaFuncFlecha = a => a * a;
+        document.getElementById("demo2").innerHTML = minhaFuncFlecha (4) + ".";
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <script>
+        let minhaFunc = (a, b) => a * b;
+        document.getElementById("demo1").innerHTML = minhaFunc;
+
+        let outraFunc = (a, b, operacao) => operacao (a, b);
+        let multiplicar = (a, b) => a * b;
+        let soma = (a, b) => a + b;
+        document.getElementById("demo2").innerHTML = outraFunc (4, 3, multiplicar);
+        document.getElementById("demo3").innerHTML = outraFunc (8, 25, soma);
+        document.getElementById("demo4").innerHTML = outraFunc (8, 25, (a, b) => a - b);
+    
+    /*
+        let calculadora = (operacao) => {
+            let contador = 0;
+            return operacao(contador);
+        }
+        let soma = (a) => ++a;
+        document.getElementById("demo").innerHTML = calculadora(soma);
+    */
+    </script>
+</body>
+</html>
