@@ -20,9 +20,9 @@
     <div id="lista-de-tarefas"></div>
     <script>
         let afazeres;
-        
-        if(Array.isArray(JSON.parse(localStorage.getItem("afazeres")))){
-            afazeres = JSON.parse(localStorage.getItem("afazeres"));
+        const afazeresSalvos = JSON.parse(localStorage.getItem("afazeres"));
+        if(Array.isArray(afazeresSalvos)){
+            afazeres = afazeresSalvos;
         }else{
             afazeres = [
             {
