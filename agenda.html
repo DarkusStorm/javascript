@@ -41,6 +41,19 @@
                 id: "id4"
             },
         ];
+        
+        const apagarTarefa = (evento) => {
+            const botaoApagar = evento.target;
+            const idApagado = botaoApagar.id;
+            afazeres = afazeres.filter((tarefa) => {
+                if (tarefa.id === idApagado){
+                    return false;
+                } else {
+                    return true;
+                };
+            })
+            renderizar();
+        };
 
         const adicionarTarefa = () => {
             const campoTarefa = document.getElementById("tarefa");
@@ -71,6 +84,8 @@
                     const botaoApagar = document.createElement("button");
                     botaoApagar.innerText = "Apagar Tarefa";
                     botaoApagar.style = "margin-left: 12px;"
+                    botaoApagar.id = tarefa.id;
+                    botaoApagar.onclick = apagarTarefa;
                     elemento.appendChild(botaoApagar);
 
                     const listaDeTarefas = document.getElementById("lista-de-tarefas");
