@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -60,9 +62,16 @@
         }
 
             let renderizar = () => {
+                document.getElementById("lista-de-tarefas").innerHTML = "";
+                
                 afazeres.forEach((tarefa) => {
                     const elemento = document.createElement("div");
                     elemento.innerHTML = "<ul>" + "<li>" + tarefa.nome + " - " + tarefa.data + "</li>" + "</ul>";
+
+                    const botaoApagar = document.createElement("button");
+                    botaoApagar.innerText = "Apagar Tarefa";
+                    botaoApagar.style = "margin-left: 12px;"
+                    elemento.appendChild(botaoApagar);
 
                     const listaDeTarefas = document.getElementById("lista-de-tarefas");
                     listaDeTarefas.appendChild(elemento);
