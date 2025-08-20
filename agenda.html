@@ -19,7 +19,12 @@
     </p>
     <div id="lista-de-tarefas"></div>
     <script>
-        let afazeres = [
+        let afazeres;
+        
+        if(Array.isArray(JSON.parse(localStorage.getItem("afazeres")))){
+            afazeres = JSON.parse(localStorage.getItem("afazeres"));
+        }else{
+            afazeres = [
             {
                 nome: "Lavar a louça",
                 data: "15-08-25",
@@ -41,19 +46,13 @@
                 id: "id4"
             },
         ];
+        }
         
-        const apagarTarefa = (evento) => {
-            const botaoApagar = evento.target;
-            const idApagado = botaoApagar.id;
-            afazeres = afazeres.filter((tarefa) => {
-                if (tarefa.id === idApagado){
-                    return false;
-                } else {
-                    return true;
-                };
-            })
-            renderizar();
-        };
+        let salvarTarefas = () => localStorage.setItem("afazeres", JSON.stringify(afazeres));
+        salvarTarefas();
+
+        // Variáveis não são apenas números, strings, dados e booleanos, mas também "storages". Um "método" é uma função que pertence a um objeto.
+        
 
         const adicionarTarefa = () => {
             const campoTarefa = document.getElementById("tarefa");
@@ -71,8 +70,23 @@
                     id: cron
                 }
             )
+            salvarTarefas();
             renderizar();
         }
+
+        const apagarTarefa = (evento) => {
+            const botaoApagar = evento.target;
+            const idApagado = botaoApagar.id;
+            afazeres = afazeres.filter((tarefa) => {
+                if (tarefa.id === idApagado){
+                    return false;
+                } else {
+                    return true;
+                };
+            })
+            salvarTarefas();
+            renderizar();
+        };
 
             let renderizar = () => {
                 document.getElementById("lista-de-tarefas").innerHTML = "";
@@ -93,8 +107,9 @@
                 }
                 );
             }
+        
         renderizar();
-        // Aprender como apagar tudo antes de renderizar novamente, e conversar com o professor sobre o fato de que a data está em inglês.
+        // Conversar com o professor sobre o fato de que a data está em inglês.
     </script>
 </body>
 
