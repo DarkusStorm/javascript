@@ -11,11 +11,14 @@
 
 <body>
     <p>
+        <h1>Organizador de Tarefas</h1>
+    </p>
+    <p>
         <input id="tarefa" type="text" placeholder="Insira aqui sua tarefa"></input>
         <input id="data" type="date" placeholder="Insira a data da tarefa"></input>
     </p>
     <p>
-        <button id="enviar" onclick="adicionarTarefa()">Adicionar Tarefa</button>
+        <button id="enviar" onclick="adicionarTarefa()" title="Adicionar a tarefa com o título e data listados.">Adicionar Tarefa</button>
     </p>
     <div id="lista-de-tarefas"></div>
     <script>
@@ -95,11 +98,13 @@
                 
                 afazeres.forEach((tarefa) => {
                     const elemento = document.createElement("div");
-                    elemento.innerHTML = "<ul>" + "<li>" + tarefa.nome + " - " + tarefa.data + "</li>" + "</ul>";
+                    elemento.innerHTML = "<ul>" + tarefa.nome + " - " + tarefa.data + "</ul>";
 
                     const botaoApagar = document.createElement("button");
                     botaoApagar.innerText = "Apagar Tarefa";
+                    botaoApagar.title = "Remover esta tarefa da lista."
                     botaoApagar.style = "margin-left: 12px;"
+                    botaoApagar.class = "apagar";
                     botaoApagar.id = tarefa.id;
                     botaoApagar.onclick = apagarTarefa;
                     elemento.appendChild(botaoApagar);
