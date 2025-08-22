@@ -20,6 +20,7 @@
     <div id="lista-de-tarefas"></div>
     <script>
         let afazeres;
+        // Atribui os afazeres salvos na linha 53 a uma constante para carregá-los quando o site é aberto. Caso não haja nada salvo, exibe a lista padrão.
         const afazeresSalvos = JSON.parse(localStorage.getItem("afazeres"));
         if(Array.isArray(afazeresSalvos)){
             afazeres = afazeresSalvos;
@@ -48,7 +49,8 @@
         ];
         }
         
-        let salvarTarefas = () => localStorage.setItem("afazeres", JSON.stringify(afazeres));
+        // Salva as tarefas inseridas no navegador.
+        const salvarTarefas = () => localStorage.setItem("afazeres", JSON.stringify(afazeres));
         salvarTarefas();
 
         // Variáveis não são apenas números, strings, dados e booleanos, mas também "storages". Um "método" é uma função que pertence a um objeto.
